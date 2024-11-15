@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InspireHer: AI-Powered Role Model Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+
+<body class="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-sans">
+    <div id="app">
+
+        <!-- Welcome Page Section -->
+        <section id="auth" class="max-w-5xl mx-auto p-8 text-center mb-8 py-16 bg-gradient-to-r from-purple-600 to-blue-700 rounded-lg shadow-2xl relative" style="margin-top: 10vh;">
+            <div class="absolute inset-0 bg-black opacity-50 rounded-lg"></div>
+            <div class="relative z-10">
+                <h1 class="text-5xl font-bold text-white mb-4 animate__animated animate__fadeIn animate__delay-0s">Welcome to <span class="text-green-300">InspireHer</span> 🌟</h1>
+                <p class="text-xl text-white mb-6 animate__animated animate__fadeIn animate__delay-1s">Your journey to finding the role model who will empower and inspire you starts here!</p>
+                <p class="text-lg text-white mb-6 animate__animated animate__fadeIn animate__delay-1s">Together, we can unlock your full potential through the stories and wisdom of incredible women. </p>
+                <button onclick="showInterestSelection()" class="bg-green-500 hover:bg-green-700 text-white text-lg font-semibold py-3 px-8 rounded-full transition duration-300 animate__animated animate__fadeIn animate__delay-2s">Get Started 🚀</button>
+            </div>
+        </section>
+
+        <!-- Interest Selection Section -->
+        <section id="interest-selection" class="max-w-5xl mx-auto p-8 text-center hidden mb-12 py-8 bg-gradient-to-r from-purple-600 to-blue-700 rounded-lg shadow-2xl relative" style="margin-top: 10vh;">
+            <h2 class="text-3xl font-semibold text-white mb-6">Choose Your Interests 🔍</h2>
+            <p class="text-lg text-white mb-8">Select the topics that resonate with you the most to get personalized role model recommendations! 🌱</p>
+            <div id="interests" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Interest options will be dynamically loaded here -->
+            </div>
+            <button onclick="showHomePage()" class="bg-green-500 hover:bg-green-700 text-white text-lg font-semibold py-3 px-8 rounded-full transition duration-300 mt-6">Proceed to Home 🏠</button>
+        </section>
+
+        <!-- Home Page Section -->
+        <div id="home-page" class="hidden bg-gradient-to-r from-purple-800 to-blue-900 rounded-lg p-8 shadow-2xl">
+
+            <!-- Navbar -->
+            <nav class="flex justify-between items-center py-4 mb-10">
+                <h1 class="text-4xl font-bold text-green-400">InspireHer 💫</h1>
+                <div class="space-x-8">
+                    <a href="#role-models" class="text-lg text-white hover:text-green-400 transition">Role Models</a>
+                    <a href="#resources" class="text-lg text-white hover:text-green-400 transition">Resources</a>
+                    <a href="#events" class="text-lg text-white hover:text-green-400 transition">Events</a>
+                    <a href="#support" class="text-lg text-white hover:text-green-400 transition">Support</a>
+                </div>
+            </nav>
+
+            <!-- Welcome & Affirmation -->
+            <section class="text-center mb-16 py-16 relative rounded-lg shadow-xl overflow-hidden bg-gradient-to-r from-blue-500 to-purple-600">
+                <!-- Background Image -->
+                <div class="absolute inset-0 bg-cover bg-center bg-opacity-60" style="background-image: url('https://example.com/hero-bg.jpg');"></div>
+
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-700 opacity-50"></div>
+
+                <div class="relative z-10">
+                    <!-- Main Heading -->
+                    <h2 class="text-6xl font-extrabold text-white mb-4 animate__animated animate__fadeIn animate__delay-0s">
+                        Welcome to InspireHer ✨
+                    </h2>
+                    
+                    <!-- Subheading with animation -->
+                    <p class="text-xl text-white mb-8 animate__animated animate__fadeIn animate__delay-1s">
+                        Empowering you to find inspiration, strength, and guidance through powerful role models. 🌟
+                    </p>
+                    
+                    <!-- Daily Affirmation -->
+                    <p class="text-lg text-gray-200 mb-6 animate__animated animate__fadeIn animate__delay-1s">
+                        Here's your daily affirmation: <span id="affirmation" class="font-semibold text-green-300">"You are stronger than you think, and you are capable of achieving greatness." 💖</span>
+                    </p>
+
+                    <!-- Call-to-action Button with Hover Effect -->
+                    <a href="#role-models" class="bg-green-500 hover:bg-green-700 text-white text-lg font-semibold py-4 px-10 rounded-full mt-8 transition-all duration-300 transform hover:scale-110">
+                        Explore Role Models 💫
+                    </a>
+                </div>
+            </section>
+
+            <!-- Role Models Section -->
+            <section id="role-models" class="mb-12">
+                <h3 class="text-4xl font-semibold text-green-400 mb-8 text-center">Recommended Role Models 💖</h3>
+                <div id="role-models-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- Role models will be dynamically loaded here -->
+                </div>
+            </section>
+
+            <!-- Resources Section -->
+            <section id="resources" class="mb-12">
+                <h3 class="text-3xl font-bold text-green-400 mb-6 text-center">Empowering Resources 💡</h3>
+                <p class="text-lg text-gray-300 mb-6 text-center">Here are some handpicked resources that can inspire and empower you on your journey:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                    <!-- Resource 1 -->
+                    <div class="resource-card bg-white rounded-lg p-6 shadow-lg hover:bg-blue-50 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/7111/7111152.png" alt="Education Icon" class="w-12 h-12 mr-4">
+                            <h4 class="text-xl font-semibold text-gray-800">Empowering Women Through Education 📚</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">A comprehensive guide to resources and programs that support women's education. Explore opportunities to enhance your skills and access valuable knowledge.</p>
+                        <a href="https://www.education.org" class="text-blue-500 hover:text-blue-700 transition">Read more 📖</a>
+                    </div>
+                    <!-- Resource 2 -->
+                    <div class="resource-card bg-white rounded-lg p-6 shadow-lg hover:bg-blue-50 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/7111/7111152.png" alt="Tech Icon" class="w-12 h-12 mr-4">
+                            <h4 class="text-xl font-semibold text-gray-800">Women in Tech Resources 💻</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">Find valuable tools, communities, and opportunities to help women succeed in tech careers. From coding boot camps to networking events, this is the place to start!</p>
+                        <a href="https://www.womenintech.org" class="text-blue-500 hover:text-blue-700 transition">Explore Resources 🔍</a>
+                    </div>
+                    <!-- Resource 3 -->
+                    <div class="resource-card bg-white rounded-lg p-6 shadow-lg hover:bg-blue-50 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/7111/7111152.png" alt="Leadership Icon" class="w-12 h-12 mr-4">
+                            <h4 class="text-xl font-semibold text-gray-800">Leadership Development Programs 🌱</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">Join leadership programs to develop your skills, expand your network, and connect with professionals who can guide your growth. Take the next step in your leadership journey.</p>
+                        <a href="https://www.leadership.org" class="text-blue-500 hover:text-blue-700 transition">Join Now 🚀</a>
+                    </div>
+                </div>
+            </section>
+             <!-- Events Section -->
+             <section id="events" class="mb-12">
+                <h3 class="text-4xl font-semibold text-green-400 mb-8 text-center">Upcoming Events 💬</h3>
+                <p class="text-lg text-gray-300 mb-6 text-center">Don't miss these empowering events and meetups that focus on women’s leadership, tech innovation, and education. Mark your calendar!</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    <!-- Event 1 -->
+                    <div class="event-card bg-white rounded-lg p-6 shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="https://cdn-icons-png.flaticon.com/512/12822/12822749.png" alt="Event 1" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Women in Tech Conference</h4>
+                        <p class="text-gray-600 mb-4">Join a powerful gathering of women leading the way in tech innovation. Connect with professionals, learn from industry leaders, and discover the latest trends in technology.</p>
+                        <a href="https://www.womenintechconference.com" class="text-blue-500 hover:text-blue-700 transition">Register Now</a>
+                    </div>
+                    <!-- Event 2 -->
+                    <div class="event-card bg-white rounded-lg p-6 shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPAPZHhmNAk73toJHa807y1OIqyam6IZ-Oba8JrJeoqOl8XkOMEtYeejganPIiygb-_ns&usqp=CAU" alt="Event 2" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Global Leadership Summit</h4>
+                        <p class="text-gray-600 mb-4">Meet influential women leaders from around the world. Discuss strategies for empowerment, leadership, and societal impact with like-minded individuals.</p>
+                        <a href="https://www.leadershipsummit.com" class="text-blue-500 hover:text-blue-700 transition">Find out More</a>
+                    </div>
+                    <!-- Event 3 -->
+                    <div class="event-card bg-white rounded-lg p-6 shadow-lg hover:shadow-2xl transition-all duration-300">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2558/2558944.png" alt="Event 3" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-2">Empowerment Through Education Webinar</h4>
+                        <p class="text-gray-600 mb-4">Join this enlightening webinar to learn how education is a key factor in empowering women globally. Gain insights on how to maximize educational opportunities.</p>
+                        <a href="https://www.educationwebinar.com" class="text-blue-500 hover:text-blue-700 transition">Join Webinar</a>
+                    </div>
+                </div>
+            </section>
+            
+
+            <!-- Support Section -->
+            <section id="support" class="mb-12">
+                <h3 class="text-3xl font-bold text-green-400 mb-6 text-center">Support and Networks 💪</h3>
+                <p class="text-lg text-gray-300 mb-6 text-center">Connect with organizations and support networks that are here to empower you. Whether you need guidance, emotional support, or legal assistance, we’ve got you covered:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                    <!-- Support 1 -->
+                    <div class="support-card bg-white rounded-lg p-6 shadow-lg hover:bg-blue-50 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1884/1884184.png" alt="Support Icon" class="w-12 h-12 mr-4">
+                            <h4 class="text-xl font-semibold text-gray-800">Support Groups for Women</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">Find a variety of support groups that provide both emotional and practical assistance to women. These groups foster community and support personal growth.</p>
+                        <a href="https://www.womensupportgroups.com" class="text-blue-500 hover:text-blue-700 transition">Join a Group</a>
+                    </div>
+                    <!-- Support 2 -->
+                    <div class="support-card bg-white rounded-lg p-6 shadow-lg hover:bg-blue-50 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1884/1884184.png" alt="Legal Support Icon" class="w-12 h-12 mr-4">
+                            <h4 class="text-xl font-semibold text-gray-800">Legal Assistance for Women</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">If you need legal guidance or support, check out these services offering free legal advice and assistance for women facing challenges in the workplace, home, or community.</p>
+                        <a href="https://www.legalassistance.org" class="text-blue-500 hover:text-blue-700 transition">Get Legal Help</a>
+                    </div>
+                    <!-- Support 3 -->
+                    <div class="support-card bg-white rounded-lg p-6 shadow-lg hover:bg-blue-50 transition-all duration-300">
+                        <div class="flex items-center mb-4">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1884/1884184.png" alt="Career Support Icon" class="w-12 h-12 mr-4">
+                            <h4 class="text-xl font-semibold text-gray-800">Career Support and Coaching</h4>
+                        </div>
+                        <p class="text-gray-600 mb-4">Career coaches and job placement services can help you accelerate your career, develop new skills, and prepare for the challenges of advancing in the workforce.</p>
+                        <a href="https://www.careersupport.org" class="text-blue-500 hover:text-blue-700 transition">Find a Coach</a>
+                    </div>
+                </div>
+            </section>
+            
+<!-- Chatbot Button -->
+<button id="chatbot-btn" class="fixed bottom-8 right-8 bg-blue-500 text-white p-3 rounded-full shadow-lg z-50" onclick="toggleChatbot()">
+    Chat with Us
+</button>
+
+<!-- Chatbot Section (Initially Hidden) -->
+<div id="chatbot" class="fixed bottom-8 right-8 bg-white p-4 rounded-lg shadow-lg max-w-xs w-full hidden">
+    <div class="flex flex-col h-64 overflow-y-auto">
+        <div id="chatbox" class="space-y-2">
+            <!-- Initial Chatbot message -->
+            <div class="chat-message bot-message">
+                <p class="text-sm text-gray-600">Hello! I’m your Role Model Finder Assistant. How can I help you today?</p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+            <!-- Footer Section -->
+            <footer class="bg-gradient-to-r from-purple-800 to-blue-900 text-white py-6 mt-12">
+                <div class="max-w-5xl mx-auto text-center">
+                    <p class="text-lg font-semibold">2024 by Rebika Yihenew</p>
+                    <p class="text-sm">For inquiries, reach me at <a href="mailto:rebeccayihenew@gmail.com" class="text-blue-400 hover:text-blue-600">rebeccayihenew@gmail.com</a></p>
+                </div>
+            </footer>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
